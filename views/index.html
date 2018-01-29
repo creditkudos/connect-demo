@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Credit Kudos - Widget Demo</title>
+    <script src="https://code.creditkudos.com/creditkudos-connect-v2.0.0.js"></script>
+
+    <script type="text/javascript">
+      CK.connect({
+        client_id: "CLIENT_ID",
+        redirect_uri: 'http://localhost:3000/callback',
+        selector: "#container",
+      })
+      .then(() => console.log('success!'))
+      .catch(error => console.log(error));
+    </script>
+  </head>
+  <body>
+    <h1>Credit Kudos Connect Demo</h1>
+    <div id="container"></div>
+  </body>
+</html>
