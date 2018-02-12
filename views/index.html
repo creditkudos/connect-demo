@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Credit Kudos - Widget Demo</title>
-    <script src="https://code.creditkudos.com/creditkudos-connect-v2.0.0.js"></script>
+    <script src="https://code.creditkudos-staging.com/creditkudos-connect-v2.0.0.js"></script>
 
     <script type="text/javascript">
       CK.connect({
-        client_id: "CLIENT_ID",
-        redirect_uri: 'http://localhost:3000/callback',
+        client_id: "ca4cd1bbad6575884c65373f382365c4b91f01a630f5f8cd64dee0e1f8c09174",
+        redirect_uri: 'https://17b2a94a.ngrok.io/callback',
         selector: "#container",
       })
       .then(() => console.log('success!'))

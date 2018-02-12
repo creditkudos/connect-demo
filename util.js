@@ -2,19 +2,22 @@ const axios = require('axios');
 
 const fetchAccessToken = async (code) => {
   const response =
-    await axios.post('https://api.creditkudos.com/oauth/token', {
+    await axios.post('https://api.creditkudos-staging.com/oauth/token', {
       client_id: process.env.CLIENT_ID,
       client_secret: process.env.CLIENT_SECRET,
       code,
       grant_type: 'authorization_code',
-      scope: 'accounts',
+      scope: 'report report:account report:transaction report:identity user:info',
     });
 
-  return response.data.access_token;
+  const accessToken = response.data.access_token;
+  console.log('accessToken Response', response.data);
+  console.log('accessToken', accessToken);
+  return accessToken;
 };
 
 const fetchUser = accessToken => (
-  axios.get('https://api.creditkudos.com/user', {
+  axios.get('https://api.creditkudos-staging.com/user', {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -22,7 +25,7 @@ const fetchUser = accessToken => (
 );
 
 const fetchReports = accessToken => (
-  axios.get('https://api.creditkudos.com/reports', {
+  axios.get('https://api.creditkudos-staging.com/reports', {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -30,7 +33,23 @@ const fetchReports = accessToken => (
 );
 
 const fetchReport = (reportId, accessToken) => (
-  axios.get(`https://api.creditkudos.com/reports/${reportId}`, {
+  axios.get(`https://api.creditkudos-staging.com/reports/${reportId}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+);
+
+const fetchAccounts = (reportId, accessToken) => (
+  axios.get(`https://api.creditkudos-staging.com/reports/${reportId}/accounts`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  })
+);
+
+const fetchTransactions = (reportId, accountId, accessToken) => (
+  axios.get(`https://api.creditkudos-staging.com/reports/${reportId}/accounts/${accountId}/transactions`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -42,4 +61,6 @@ module.exports = {
   fetchUser,
   fetchReports,
   fetchReport,
+  fetchAccounts,
+  fetchTransactions,
 };
