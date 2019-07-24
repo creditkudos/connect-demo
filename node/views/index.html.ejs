@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.creditkudos.com/creditkudos-connect-v2.6.0.js"></script>
+
+    <script type="text/javascript">
+      CK.connect({
+        client_id: '<%= process.env.CLIENT_ID %>',
+        redirect_uri: '<%= process.env.REDIRECT_URI %>',
+        customer_token: '<%= customerToken %>',
+        selector: "#CK-button-container",
+      })
+      .then(() => window.location = '/complete')
+      .catch(() => window.location = '/error');
+    </script>
+  </head>
+
+  <body>
+    <h1>Credit Kudos Connect Demo</h1>
+    <div id="CK-button-container"></div>
+  </body>
+</html>

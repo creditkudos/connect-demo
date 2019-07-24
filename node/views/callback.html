@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="text/javascript">
+    var readyStateCheckInterval = setInterval(function () {
+      if (document.readyState === "complete") {
+        clearInterval(readyStateCheckInterval);
+        window.opener.CK.callback(window.location.search);
+      }
+    }, 1);
+  </script>
+</head>
+<body>
+</body>
+</html>
