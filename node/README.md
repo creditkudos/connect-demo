@@ -1,4 +1,4 @@
-# connect-demo
+# Credit Kudos Connect Node/Express Demo
 A sample Node/Express app using Credit Kudos Connect.
 
 ## Setup
