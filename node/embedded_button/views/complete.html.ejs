@@ -3,6 +3,7 @@
   <head>
     <script type="text/javascript">
       window.accessToken = '<%= accessToken %>';
+      window.refreshToken = '<%= refreshToken %>';
     </script>
 
     <link rel="stylesheet" type="text/css" href="./complete.css">
@@ -10,6 +11,11 @@
   </head>
   <body>
     <h1>Complete!</h1>
+
+    <div id='tokens' style='word-wrap: break-word'>
+      <h2>Tokens</h2>
+      <h5>Fetching...</h5>
+    </div>
 
     <div id='userinfo'>
       <h2>UserInfo</h2>

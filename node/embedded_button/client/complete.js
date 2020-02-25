@@ -28,6 +28,7 @@ const fetchTransactions = (reportId, accountId) => http.get(`/v3/reports/${repor
 
 fetchUserInfo().then(res => {
   renderJSON(res.data, 'userinfo');
+  renderJSON({ 'accessToken': window.accessToken, 'refreshToken': window.refreshToken }, 'tokens');
 });
 
 fetchReports().then(res => {
