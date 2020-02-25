@@ -40,6 +40,7 @@ router.get('/callback', (req, res) => {
       scope: 'report user:info',
     }).then((res) => {
       db.set('accessToken', res.data.access_token).write();
+      db.set('refreshToken', res.data.refresh_token).write();
     });
   } else if (error) {
     db.set('error', `code: ${error}, description: ${error_description}`).write();
@@ -50,7 +51,8 @@ router.get('/callback', (req, res) => {
 
 router.get('/complete', (req, res) => {
   const accessToken = db.get('accessToken');
-  res.render('complete.html.ejs', { accessToken });
+  const refreshToken = db.get('refreshToken');
+  res.render('complete.html.ejs', { accessToken, refreshToken });
 });
 
 router.get('/error', (req, res) => {
