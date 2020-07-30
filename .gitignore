@@ -1,0 +1,5 @@
+# Terraform
+/.infrastructure/**/*.tfstate
+/.infrastructure/**/*.tfstate.backup
+/.infrastructure/**/*.tfstate.*.backup
+/.infrastructure/**/.terraform/
