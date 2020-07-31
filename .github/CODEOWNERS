@@ -1,0 +1,6 @@
+* @creditkudos/js
+
+/.circleci/             @creditkudos/devops
+/.github/               @creditkudos/devops
+/.infrastructure/       @creditkudos/devops
+/config/dockerfiles/    @creditkudos/devops
